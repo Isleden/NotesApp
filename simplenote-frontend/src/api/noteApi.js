@@ -1,0 +1,13 @@
+import axios from 'axios';
+
+const API_BASE_URL = 'http://localhost:8080/api/notes';
+
+export const getAllNotes = () => axios.get(API_BASE_URL);
+
+export const getNoteById = (id) => axios.get(`${API_BASE_URL}/${id}`);
+
+export const createNote = (note) => axios.post(API_BASE_URL, note);
+
+export const updateNote = (id, note) => axios.put(`${API_BASE_URL}/${id}`, note);
+
+export const deleteNote = (id) => axios.delete(`${API_BASE_URL}/${id}`);

@@ -1,0 +1,16 @@
+simplenote/.gradle/
+simplenote/build/
+simplenote/.idea/
+simplenote/*.iml
+simplenote/out/
+simplenote/HELP.md
+
+simplenote-frontend/node_modules/
+simplenote-frontend/dist/
+simplenote-frontend/.vite/
+
+**/application.properties
+**/.env
+
+.DS_Store
+Thumbs.db
