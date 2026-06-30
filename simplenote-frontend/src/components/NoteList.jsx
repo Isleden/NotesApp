@@ -1,18 +1,26 @@
+import '../styles/NoteList.css';
+
 function NoteList({ notes, onEdit, onDelete }) {
   if (notes.length === 0) {
-    return <p>No notes yet. Add one above!</p>;
+    return <p className="note-list-empty">Add Notes.</p>;
   }
 
   return (
-    <div>
+    <div className="note-list">
       {notes.map((note) => (
-        <div key={note.id} style={{ border: '1px solid #ccc', margin: '10px 0', padding: '10px' }}>
-          <h3>{note.title}</h3>
-          <p>{note.content}</p>
-          <small>Last updated: {new Date(note.updatedAt).toLocaleString()}</small>
-          <div>
-            <button onClick={() => onEdit(note)}>Edit</button>
-            <button onClick={() => onDelete(note.id)}>Delete</button>
+        <div key={note.id} className="note-card">
+          <h3 className="note-card-title">{note.title}</h3>
+          <p className="note-card-content">{note.content}</p>
+          <div className="note-card-meta">
+            Updated {new Date(note.updatedAt).toLocaleString()}
+          </div>
+          <div className="note-card-actions">
+            <button className="btn-small btn-edit" onClick={() => onEdit(note)}>
+              Edit
+            </button>
+            <button className="btn-small btn-delete" onClick={() => onDelete(note.id)}>
+              Delete
+            </button>
           </div>
         </div>
       ))}

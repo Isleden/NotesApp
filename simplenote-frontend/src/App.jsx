@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import NoteForm from './components/NoteForm';
 import NoteList from './components/NoteList';
 import { getAllNotes, createNote, updateNote, deleteNote } from './api/noteApi';
+import './styles/App.css';
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -44,18 +45,14 @@ function App() {
   };
 
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
-      <h1>SimpleNote</h1>
+    <div className="app">
+      <h1 className="app-title">SimpleNote</h1>
       <NoteForm
         onSubmit={handleSubmit}
         editingNote={editingNote}
         onCancelEdit={() => setEditingNote(null)}
       />
-      <NoteList
-        notes={notes}
-        onEdit={setEditingNote}
-        onDelete={handleDelete}
-      />
+      <NoteList notes={notes} onEdit={setEditingNote} onDelete={handleDelete} />
     </div>
   );
 }
